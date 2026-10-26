@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WanGP · Animated 2026</title>
+  <meta name="description" content="WanGP: Low-VRAM app for Wan, LTX, Hunyuan and more. License WanGP Community License 2.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>WanGP</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>WanGP</h1>
+<p class="lede">Low-VRAM app for Wan, LTX, Hunyuan and more</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>WanGP Community License 2.0</dd></div>
+  <div><dt>Stars</dt><dd>11.1k</dd></div>
+  <div><dt>Last push</dt><dd>2026-10-25</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Low-VRAM app for Wan, LTX, Hunyuan and more</p>
+  <h2>Install</h2>
+  <p>The README says some models run with as little as <strong>6 GB of VRAM</strong>, and that AMD RDNA 4, 3, 3.5, and 2 are supported. One-click scripts: <code>scripts/install.bat</code> or <code>scripts/install.sh</code>, then <code>scripts/run.bat</code> or <code>scripts/run.sh</code>.</p>
+<p>Manual install for RTX 20-series through 50-series, as printed in the README. The clone URL in the README is <code>Wan2GP.git</code> (the GitHub repository is <code>WanGP</code>):</p>
+<pre><code>git clone https://github.com/deepbeepmeep/Wan2GP.git
+cd Wan2GP
+conda create -n wan2gp python=3.11.14
+conda activate wan2gp
+pip install torch==2.10.0 torchvision==0.25.0 torchaudio==2.10.0 --index-url https://download.pytorch.org/whl/cu130
+pip install -r requirements.txt</code></pre>
+<p>GTX 10-series in the README uses Python 3.10.9 and a different PyTorch build:</p>
+<pre><code>pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/test/cu128
+pip install -r requirements.txt</code></pre>
+<p>Windows Triton commands are a table in the README (3.6.x with PyTorch 2.10 on RTX 30–50, 3.2.x on RTX 20). AMD steps are in <code>docs/AMD-INSTALLATION.md</code>, not repeated here.</p>
+<p class="callout"><strong>Check this.</strong> Commands from the WanGP README, checked 26 Oct 2026.</p>
+  <h2>Quick start</h2>
+  <pre><code>python wgp.py</code></pre>
+<p>The README says the Guides tab lists recommended models on first launch, and that disabling browser GPU use can free VRAM.</p>
+  <h2>Caveats</h2>
+  <p class="callout">Free to use, but no reselling or paid hosting without a commercial license</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/deepbeepmeep/WanGP">GitHub</a></li><li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/INSTALLATION.md">Installation guide</a></li><li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/AMD-INSTALLATION.md">AMD</a></li><li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/docs/GETTING_STARTED.md">Getting started</a></li><li><a href="https://github.com/deepbeepmeep/WanGP/blob/main/LICENSE.txt">License</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

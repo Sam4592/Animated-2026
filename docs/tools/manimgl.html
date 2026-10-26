@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ManimGL (3b1b) · Animated 2026</title>
+  <meta name="description" content="ManimGL (3b1b): 3Blue1Brown&#x27;s own engine with interactive preview. License MIT. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#pipeline">Pipeline &amp; CLI</a></li>
+    <li aria-hidden="true">/</li>
+    <li>ManimGL (3b1b)</li>
+  </ol>
+</nav>
+<p class="kicker">Pipeline &amp; CLI</p>
+<h1>ManimGL (3b1b)</h1>
+<p class="lede">3Blue1Brown&#x27;s own engine with interactive preview</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>MIT</dd></div>
+  <div><dt>Stars</dt><dd>95.7k</dd></div>
+  <div><dt>Last push</dt><dd>2026-09-09</dd></div>
+  <div><dt>Stack</dt><dd>Python, OpenGL</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>3Blue1Brown&#x27;s own engine with interactive preview</p>
+  <h2>Install</h2>
+  <p>The package name is <code>manimgl</code>, not <code>manim</code>. Python 3.10 or higher. System requirements named in the README: FFmpeg, OpenGL, and optional LaTeX. Linux also needs Pango development headers.</p>
+<h3>pip</h3>
+<pre><code>pip install manimgl
+manimgl</code></pre>
+<h3>Ubuntu / Debian, from the README</h3>
+<pre><code>sudo apt update
+sudo apt install ffmpeg python3-pip libpango1.0-dev
+sudo apt install texlive-science texlive-fonts-extra texlive-latex-extra
+git clone https://github.com/3b1b/manim.git
+cd manim
+python3 -m pip install -e .
+manimgl example_scenes.py OpeningManimExample</code></pre>
+<h3>macOS, from the README</h3>
+<pre><code>brew install ffmpeg mactex
+git clone https://github.com/3b1b/manim.git
+cd manim
+pip install -e .
+manimgl example_scenes.py OpeningManimExample</code></pre>
+<p>On Apple silicon the README also says <code>arch -arm64 brew install pkg-config cairo</code>. It notes MacTeX is large and points at BasicTeX as a smaller option. Windows steps in the README: install FFmpeg, install MiKTeX, then the same clone and <code>pip install -e .</code>.</p>
+<p class="callout"><strong>Check this.</strong> Commands from the 3b1b/manim README, checked 26 Oct 2026. Do not use these commands to install Manim Community.</p>
+  <h2>Quick start</h2>
+  <pre><code>manimgl example_scenes.py OpeningManimExample</code></pre>
+  <h2>Caveats</h2>
+  <p class="callout">Different API from Community Manim; thinner docs</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/3b1b/manim">GitHub</a></li><li><a href="https://3b1b.github.io/manim/">Docs</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

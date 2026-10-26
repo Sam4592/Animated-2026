@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open-Sora · Animated 2026</title>
+  <meta name="description" content="Open-Sora: Fully open model including training code (Open-Sora 2.0, 11B). License Apache-2.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>Open-Sora</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>Open-Sora</h1>
+<p class="lede">Fully open model including training code (Open-Sora 2.0, 11B)</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>Apache-2.0</dd></div>
+  <div><dt>Stars</dt><dd>29.9k</dd></div>
+  <div><dt>Last push</dt><dd>2026-04-09</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Fully open model including training code (Open-Sora 2.0, 11B)</p>
+  <h2>Install</h2>
+  <p>The README’s quickstart uses conda, Python 3.10, and PyTorch &gt;= 2.4.0. <code>xformers</code> is pinned for CUDA 12.1 in the example; the comment says to match your CUDA version.</p>
+<pre><code>conda create -n opensora python=3.10
+conda activate opensora
+git clone https://github.com/hpcaitech/Open-Sora
+cd Open-Sora
+pip install -v .
+pip install xformers==0.0.27.post2 --index-url https://download.pytorch.org/whl/cu121
+pip install flash-attn --no-build-isolation</code></pre>
+<p>Weights:</p>
+<pre><code>pip install &quot;huggingface_hub[cli]&quot;
+huggingface-cli download hpcai-tech/Open-Sora-v2 --local-dir ./ckpts</code></pre>
+<p>The README’s efficiency table is measured on H100/H800 GPUs. It does not state a minimum consumer-GPU size in the install section.</p>
+<p class="callout"><strong>Check this.</strong> Commands from the Open-Sora README, checked 26 Oct 2026.</p>
+  <h2>Quick start</h2>
+  <p>One-GPU 256px text-to-video example from the README, with offloading:</p>
+<pre><code>torchrun --nproc_per_node 1 --standalone scripts/diffusion/inference.py configs/diffusion/inference/t2i2v_256px.py --save-dir samples --prompt &quot;raining, sea&quot; --offload True</code></pre>
+  <h2>Caveats</h2>
+  <p class="callout">No new model since 2.0 in Mar 2025</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/hpcaitech/Open-Sora">GitHub</a></li><li><a href="https://github.com/hpcaitech/Open-Sora#quickstart">README</a></li><li><a href="https://huggingface.co/hpcai-tech/Open-Sora-v2">Weights</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

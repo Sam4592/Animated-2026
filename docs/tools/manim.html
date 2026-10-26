@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manim (Community) · Animated 2026</title>
+  <meta name="description" content="Manim (Community): Math and technical explainer animations (v0.22.0, 8 Oct 2026). License MIT. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#pipeline">Pipeline &amp; CLI</a></li>
+    <li aria-hidden="true">/</li>
+    <li>Manim (Community)</li>
+  </ol>
+</nav>
+<p class="kicker">Pipeline &amp; CLI</p>
+<h1>Manim (Community)</h1>
+<p class="lede">Math and technical explainer animations (v0.22.0, 8 Oct 2026)</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>MIT</dd></div>
+  <div><dt>Stars</dt><dd>41.9k</dd></div>
+  <div><dt>Last push</dt><dd>2026-10-26</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Math and technical explainer animations (v0.22.0, 8 Oct 2026)</p>
+  <h2>Install</h2>
+  <p>The README does not paste commands. It says to follow the docs, and warns these steps are for the community edition only. The installation page says that if a Python environment already exists:</p>
+<pre><code>pip install manim</code></pre>
+<p>The local guide (docs for v0.22.0) recommends <a href="https://docs.astral.sh/uv/#getting-started">uv</a>, then:</p>
+<pre><code>uv python install
+uv init manimations
+cd manimations
+uv add manim
+uv run manim checkhealth</code></pre>
+<p>Before <code>uv add</code>, that guide says macOS needs <code>brew install cairo pkg-config</code>. Debian-based Linux:</p>
+<pre><code>sudo apt update
+sudo apt install build-essential python3-dev libcairo2-dev libpango1.0-dev</code></pre>
+<p>LaTeX is optional and required for typeset formulas. The guide’s examples include MiKTeX on Windows, MacTeX on macOS, and <code>sudo apt install texlive-full</code> on Debian. A community Docker image is <code>manimcommunity/manim</code>.</p>
+<p class="callout"><strong>Check this.</strong> Commands from docs.manim.community installation pages linked by the README, checked 26 Oct 2026.</p>
+  <h2>Quick start</h2>
+  <p>Save a scene as <code>example.py</code> and, from the README:</p>
+<pre><code>manim -p -ql example.py SquareToCircle</code></pre>
+<p>With uv, run it as <code>uv run manim -p -ql example.py SquareToCircle</code>. <code>-p</code> previews and <code>-ql</code> is low quality.</p>
+  <h2>Caveats</h2>
+  <p class="callout">Needs FFmpeg and, for formulas, LaTeX installed</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/ManimCommunity/manim">GitHub</a></li><li><a href="https://docs.manim.community/en/stable/installation.html">Installation</a></li><li><a href="https://docs.manim.community/en/stable/installation/uv.html">Local install (uv)</a></li><li><a href="https://docs.manim.community/en/stable/installation/docker.html">Docker</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

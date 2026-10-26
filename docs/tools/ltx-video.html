@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LTX-Video · Animated 2026</title>
+  <meta name="description" content="LTX-Video: Earlier, permissively licensed LTX model. License Apache-2.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>LTX-Video</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>LTX-Video</h1>
+<p class="lede">Earlier, permissively licensed LTX model</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>Apache-2.0</dd></div>
+  <div><dt>Stars</dt><dd>11.2k</dd></div>
+  <div><dt>Last push</dt><dd>2026-01-05</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Earlier, permissively licensed LTX model</p>
+  <h2>Install</h2>
+  <p>The README says this codebase was tested with Python 3.10.5 and CUDA 12.2, and supports PyTorch &gt;= 2.1.2. On macOS, MPS was tested with PyTorch 2.3.0 and should support PyTorch == 2.3 or &gt;= 2.6.</p>
+<pre><code>git clone https://github.com/Lightricks/LTX-Video.git
+cd LTX-Video
+python -m venv env
+source env/bin/activate
+python -m pip install -e .[inference]</code></pre>
+<p>On some shells the extras bracket must be quoted: <code>pip install -e ".[inference]"</code>. The README writes it as <code>.\[inference]</code> inside a bash fence. Optional FP8 kernels are a separate repository, for Ada and later.</p>
+<p class="callout"><strong>Check this.</strong> Steps from the LTX-Video README, checked 26 Oct 2026. The README says LTX-2 has replaced this line of models.</p>
+  <h2>Quick start</h2>
+  <p>The README recommends the ComfyUI workflow for quality. The local script it shows:</p>
+<pre><code>python inference.py --prompt &quot;PROMPT&quot; --conditioning_media_paths IMAGE_PATH --conditioning_start_frames 0 --height HEIGHT --width WIDTH --num_frames NUM_FRAMES --seed SEED --pipeline_config configs/ltxv-13b-0.9.8-distilled.yaml</code></pre>
+  <h2>Caveats</h2>
+  <p class="callout">Superseded by LTX-2</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/Lightricks/LTX-Video">GitHub</a></li><li><a href="https://github.com/Lightricks/LTX-Video#quick-start-guide">README</a></li><li><a href="https://huggingface.co/docs/diffusers/main/en/api/pipelines/ltx_video">Diffusers</a></li><li><a href="https://github.com/Lightricks/ComfyUI-LTXVideo/">ComfyUI</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

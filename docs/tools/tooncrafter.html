@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToonCrafter · Animated 2026</title>
+  <meta name="description" content="ToonCrafter: Generating in-between frames for cartoons. License Apache-2.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>ToonCrafter</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>ToonCrafter</h1>
+<p class="lede">Generating in-between frames for cartoons</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>Apache-2.0</dd></div>
+  <div><dt>Stars</dt><dd>6.0k</dd></div>
+  <div><dt>Last push</dt><dd>2025-03-19</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Generating in-between frames for cartoons</p>
+  <h2>Install</h2>
+  <p>The README recommends Anaconda and pins Python 3.8.5. It does not print a <code>git clone</code> line; clone the repository, then:</p>
+<pre><code>git clone https://github.com/Doubiiu/ToonCrafter.git
+cd ToonCrafter
+conda create -n tooncrafter python=3.8.5
+conda activate tooncrafter
+pip install -r requirements.txt</code></pre>
+<p>Download <code>model.ckpt</code> from the Hugging Face link in the README and place it at <code>checkpoints/tooncrafter_512_interp_v1/model.ckpt</code>. The model card in the README lists about 24 GB GPU memory on an A100 for the 512 model (about 24–27 GB in this implementation; a community build lowered that toward 10 GB).</p>
+<p class="callout"><strong>Check this.</strong> Environment commands and memory note from the ToonCrafter README, checked 26 Oct 2026. The clone line adds the repository URL the README assumes you already have.</p>
+  <h2>Quick start</h2>
+  <pre><code>sh scripts/run.sh</code></pre>
+<p>Or <code>python gradio_app.py</code> after the checkpoint is in place. The README says clips are up to 16 frames at 512×320.</p>
+  <h2>Caveats</h2>
+  <p class="callout">Research code; no pushes since Mar 2025</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/Doubiiu/ToonCrafter">GitHub</a></li><li><a href="https://github.com/Doubiiu/ToonCrafter#setup">README</a></li><li><a href="https://huggingface.co/Doubiiu/ToonCrafter/blob/main/model.ckpt">Weights</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComfyUI · Animated 2026</title>
+  <meta name="description" content="ComfyUI: Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026). License GPL-3.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>ComfyUI</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>ComfyUI</h1>
+<p class="lede">Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026)</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>GPL-3.0</dd></div>
+  <div><dt>Stars</dt><dd>143.2k</dd></div>
+  <div><dt>Last push</dt><dd>2026-10-26</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026)</p>
+  <h2>Install</h2>
+  <p>The README recommends the <a href="https://www.comfy.org/download">desktop app</a> for Windows and Mac. Portable Windows archives are also linked (Nvidia, AMD, Intel, and an older Nvidia CUDA 12.6 build for 10-series GPUs). The Nvidia portable build it describes ships Python 3.13 and PyTorch CUDA 13.0 and supports 20-series and newer.</p>
+<h3>comfy-cli</h3>
+<pre><code>pip install comfy-cli
+comfy install</code></pre>
+<h3>Manual install</h3>
+<p>The README says to git clone the repo. Python 3.13 is “very well supported”; 3.14 works with possible custom-node issues. Nvidia PyTorch, then dependencies:</p>
+<pre><code>git clone https://github.com/Comfy-Org/ComfyUI.git
+cd ComfyUI
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130
+pip install -r requirements.txt
+python main.py</code></pre>
+<p>AMD, Intel, and Apple silicon commands are in the same Installing section (ROCm, XPU, and the Apple PyTorch nightly note). They are not copied in full here. A GPU is required for practical video models; the README also says each model has its own license.</p>
+<p class="callout"><strong>Check this.</strong> Commands from the ComfyUI README, checked 26 Oct 2026. The clone URL is the repository this catalog links.</p>
+  <h2>Quick start</h2>
+  <p>The desktop app or <code>python main.py</code> opens the node graph in a browser. Put checkpoints in <code>models/checkpoints</code>. Video models such as Wan are separate downloads.</p>
+  <h2>Caveats</h2>
+  <p class="callout">Each model keeps its own license; needs a capable GPU</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/Comfy-Org/ComfyUI">GitHub</a></li><li><a href="https://www.comfy.org/download">Desktop download</a></li><li><a href="https://docs.comfy.org/comfy-cli/getting-started">comfy-cli</a></li><li><a href="https://github.com/Comfy-Org/ComfyUI#manual-install-windows-linux">Manual install</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>
