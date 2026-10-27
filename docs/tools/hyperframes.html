@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#code">Code-driven</a></li>
     <li aria-hidden="true">/</li>
-    <li>HyperFrames</li>
+    <li aria-current="page">HyperFrames</li>
   </ol>
 </nav>
 <p class="kicker">Code-driven</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>HTML/CSS + seekable animations to deterministic MP4; built for AI coding agents</p>
+  <p>HTML/CSS + seekable animations to deterministic MP4; built for AI coding agents — TypeScript, HTML/CSS, Node 22+. Pre-1.0 (v0.8.206 shipped today), so expect API churn.</p>
   <h2>Install</h2>
   <p>The README’s manual path is the CLI. It requires <strong>Node.js 22+</strong> and <strong>FFmpeg</strong>.</p>
 <pre><code>npx hyperframes init my-video

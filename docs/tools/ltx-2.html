@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -37,12 +41,12 @@
   <ol class="crumb">
     <li><a href="../index.html">Home</a></li>
     <li aria-hidden="true">/</li>
-    <li><a href="../index.html#ai">AI generative</a></li>
+    <li><a href="../index.html#ai">AI video</a></li>
     <li aria-hidden="true">/</li>
-    <li>LTX-2</li>
+    <li aria-current="page">LTX-2</li>
   </ol>
 </nav>
-<p class="kicker">AI generative</p>
+<p class="kicker">AI video</p>
 <h1>LTX-2</h1>
 <p class="lede">Video generation with synchronized audio (LTX-2.5 weights, v1.5.0)</p>
 <dl class="facts">
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Video generation with synchronized audio (LTX-2.5 weights, v1.5.0)</p>
+  <p>Video generation with synchronized audio (LTX-2.5 weights, v1.5.0) — Python. Entities with $10M+ annual revenue need a paid license.</p>
   <h2>Install</h2>
   <p>The README quick start uses <code>uv</code>. The <code>natten</code> extra is the fastest video-VAE backend and is Linux + CUDA only; on Windows and macOS it is skipped. The distilled LTX-2.5 download is about 66 GiB. Hugging Face may require you to accept the model terms and log in.</p>
 <pre><code>git clone https://github.com/Lightricks/LTX-2.git

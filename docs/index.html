@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
 <a href="index.html#top-picks">Top picks</a>
 <a href="index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="licenses.html">Licenses</a>
 <a href="choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -48,52 +52,49 @@
   <div class="cards">
     <article class="card" data-tool data-cat="code" data-search="HyperFrames Agent-written HTML to MP4; most-starred code-driven tool here Apache-2.0">
   <p class="rank">Top pick 1</p>
-  <h3>HyperFrames</h3>
+  <h3><a href="tools/hyperframes.html">HyperFrames</a></h3>
   <p class="best">Agent-written HTML to MP4; most-starred code-driven tool here</p>
   <ul class="meta"><li>Apache-2.0</li></ul>
-  <p><a href="tools/hyperframes.html">Open HyperFrames</a></p>
 </article><article class="card" data-tool data-cat="code" data-search="Remotion Mature React video pipeline for templated content at scale Source-available">
   <p class="rank">Top pick 2</p>
-  <h3>Remotion</h3>
+  <h3><a href="tools/remotion.html">Remotion</a></h3>
   <p class="best">Mature React video pipeline for templated content at scale</p>
   <ul class="meta"><li>Source-available</li></ul>
-  <p><a href="tools/remotion.html">Open Remotion</a></p>
 </article><article class="card" data-tool data-cat="apps" data-search="Blender 3D, 2D Grease Pencil, compositing and editing in one app GPL-2.0+">
   <p class="rank">Top pick 3</p>
-  <h3>Blender</h3>
+  <h3><a href="tools/blender.html">Blender</a></h3>
   <p class="best">3D, 2D Grease Pencil, compositing and editing in one app</p>
   <ul class="meta"><li>GPL-2.0+</li></ul>
-  <p><a href="tools/blender.html">Open Blender</a></p>
-</article><article class="card" data-tool data-cat="ai" data-search="ComfyUI + Wan 2.2 Local AI video and character animation, permissive weights GPL-3.0 / Apache-2.0">
+</article><article class="card" data-tool data-cat="ai" data-search="ComfyUI Local AI video and character animation, permissive weights. Wan 2.2 (Apache-2.0) is the model in this pick. GPL-3.0">
   <p class="rank">Top pick 4</p>
-  <h3>ComfyUI + Wan 2.2</h3>
-  <p class="best">Local AI video and character animation, permissive weights</p>
-  <ul class="meta"><li>GPL-3.0 / Apache-2.0</li></ul>
-  <p><a href="tools/comfyui.html">ComfyUI</a> <a href="tools/wan22.html">Wan 2.2</a></p>
+  <h3><a href="tools/comfyui.html">ComfyUI</a></h3>
+  <p class="best">Local AI video and character animation, permissive weights. Wan 2.2 (Apache-2.0) is the model in this pick.</p>
+  <ul class="meta"><li>GPL-3.0</li></ul>
 </article><article class="card" data-tool data-cat="pipeline" data-search="Manim (Community) Math and technical explainers in Python MIT">
   <p class="rank">Top pick 5</p>
-  <h3>Manim (Community)</h3>
+  <h3><a href="tools/manim.html">Manim (Community)</a></h3>
   <p class="best">Math and technical explainers in Python</p>
   <ul class="meta"><li>MIT</li></ul>
-  <p><a href="tools/manim.html">Open Manim</a></p>
 </article><article class="card" data-tool data-cat="ai" data-search="LTX-2 AI video with synchronized audio Community license">
   <p class="rank">Top pick 6</p>
-  <h3>LTX-2</h3>
+  <h3><a href="tools/ltx-2.html">LTX-2</a></h3>
   <p class="best">AI video with synchronized audio</p>
   <ul class="meta"><li>Community license</li></ul>
-  <p><a href="tools/ltx-2.html">Open LTX-2</a></p>
 </article><article class="card" data-tool data-cat="code" data-search="Motion Canvas MIT-licensed code animation with a visual editor MIT">
   <p class="rank">Top pick 7</p>
-  <h3>Motion Canvas</h3>
+  <h3><a href="tools/motion-canvas.html">Motion Canvas</a></h3>
   <p class="best">MIT-licensed code animation with a visual editor</p>
   <ul class="meta"><li>MIT</li></ul>
-  <p><a href="tools/motion-canvas.html">Open Motion Canvas</a></p>
-</article><article class="card" data-tool data-cat="apps motion" data-search="OpenToonz / Friction 2D cel animation / After Effects-style motion graphics BSD-3 / GPL-3.0">
+</article><article class="card" data-tool data-cat="apps" data-search="OpenToonz Production 2D cel and cut-out animation BSD-3-Clause">
   <p class="rank">Top pick 8</p>
-  <h3>OpenToonz / Friction</h3>
-  <p class="best">2D cel animation / After Effects-style motion graphics</p>
-  <ul class="meta"><li>BSD-3 / GPL-3.0</li></ul>
-  <p><a href="tools/opentoonz.html">OpenToonz</a> <a href="tools/friction.html">Friction</a></p>
+  <h3><a href="tools/opentoonz.html">OpenToonz</a></h3>
+  <p class="best">Production 2D cel and cut-out animation</p>
+  <ul class="meta"><li>BSD-3-Clause</li></ul>
+</article><article class="card" data-tool data-cat="motion" data-search="Friction After Effects-style vector motion graphics (enve fork) GPL-3.0">
+  <p class="rank">Top pick 9</p>
+  <h3><a href="tools/friction.html">Friction</a></h3>
+  <p class="best">After Effects-style vector motion graphics (enve fork)</p>
+  <ul class="meta"><li>GPL-3.0</li></ul>
 </article>
   </div>
 </section>
@@ -105,12 +106,16 @@
       <input id="q" type="search" placeholder="Name, license, stack, or what it’s for" autocomplete="off">
     </div>
     <div>
-      <p id="filters-label" class="muted" style="margin:0 0 .3rem;font-size:.85rem;font-weight:650;color:var(--ink)">Category</p>
+      <p id="filters-label" class="control-label">Category</p>
       <div class="filters" role="group" aria-labelledby="filters-label">
         <button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="code" aria-pressed="false">Code-driven</button><button type="button" data-filter="pipeline" aria-pressed="false">Pipeline/CLI</button><button type="button" data-filter="apps" aria-pressed="false">2D/3D</button><button type="button" data-filter="motion" aria-pressed="false">Motion graphics</button><button type="button" data-filter="ai" aria-pressed="false">AI video</button><button type="button" data-filter="lottie" aria-pressed="false">Lottie</button>
       </div>
     </div>
     <p id="count" aria-live="polite">35 tools</p>
+    <div class="empty" id="none" hidden>
+      <p>No tools match this search or category.</p>
+      <button type="button" class="clear-filters" data-clear-filters>Clear filters</button>
+    </div>
   </div>
   <section class="section" id="code" data-section>
   <div class="section-head">
@@ -331,11 +336,11 @@
   </div>
 </section><section class="section" id="ai" data-section>
   <div class="section-head">
-    <h2>AI generative</h2>
+    <h2>AI video</h2>
     <p class="muted">Local models and node UIs that generate or animate footage.</p>
   </div>
   <div class="tool-grid">
-    <article class="tool" data-tool data-cat="ai" data-search="ComfyUI Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026) GPL-3.0 Python Each model keeps its own license; needs a capable GPU AI generative 143.2k">
+    <article class="tool" data-tool data-cat="ai" data-search="ComfyUI Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026) GPL-3.0 Python Each model keeps its own license; needs a capable GPU AI video 143.2k AI generative">
   <h3><a href="tools/comfyui.html">ComfyUI</a></h3>
   <p class="best">Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026)</p>
   <ul class="meta">
@@ -344,7 +349,7 @@
     <li>Push 2026-10-26</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="Open-Sora Fully open model including training code (Open-Sora 2.0, 11B) Apache-2.0 Python No new model since 2.0 in Mar 2025 AI generative 29.9k">
+<article class="tool" data-tool data-cat="ai" data-search="Open-Sora Fully open model including training code (Open-Sora 2.0, 11B) Apache-2.0 Python No new model since 2.0 in Mar 2025 AI video 29.9k AI generative">
   <h3><a href="tools/open-sora.html">Open-Sora</a></h3>
   <p class="best">Fully open model including training code (Open-Sora 2.0, 11B)</p>
   <ul class="meta">
@@ -353,7 +358,7 @@
     <li>Push 2026-04-09</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="LivePortrait Animating a still portrait from a driving video MIT (code) Python Repo moved to KlingAIResearch; check bundled model licenses AI generative 19.3k">
+<article class="tool" data-tool data-cat="ai" data-search="LivePortrait Animating a still portrait from a driving video MIT (code) Python Repo moved to KlingAIResearch; check bundled model licenses AI video 19.3k AI generative">
   <h3><a href="tools/liveportrait.html">LivePortrait</a></h3>
   <p class="best">Animating a still portrait from a driving video</p>
   <ul class="meta">
@@ -362,7 +367,7 @@
     <li>Push 2026-06-01</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="Wan 2.2 Text/image-to-video, Wan2.2-Animate character animation, speech-to-video Apache-2.0 Python 14B models need large GPUs; the 5B TI2V model targets a 4090-class card AI generative 18.2k">
+<article class="tool" data-tool data-cat="ai" data-search="Wan 2.2 Text/image-to-video, Wan2.2-Animate character animation, speech-to-video Apache-2.0 Python 14B models need large GPUs; the 5B TI2V model targets a 4090-class card AI video 18.2k AI generative">
   <h3><a href="tools/wan22.html">Wan 2.2</a></h3>
   <p class="best">Text/image-to-video, Wan2.2-Animate character animation, speech-to-video</p>
   <ul class="meta">
@@ -371,7 +376,7 @@
     <li>Push 2026-09-21</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="FramePack Practical image-to-video diffusion on consumer GPUs Apache-2.0 Python No pushes since Oct 2025 AI generative 17.3k">
+<article class="tool" data-tool data-cat="ai" data-search="FramePack Practical image-to-video diffusion on consumer GPUs Apache-2.0 Python No pushes since Oct 2025 AI video 17.3k AI generative">
   <h3><a href="tools/framepack.html">FramePack</a></h3>
   <p class="best">Practical image-to-video diffusion on consumer GPUs</p>
   <ul class="meta">
@@ -380,7 +385,7 @@
     <li>Push 2025-10-16</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="CogVideoX Text/image-to-video research models Apache-2.0 (code) Python Weights may carry their own license; check before commercial use AI generative 13.1k">
+<article class="tool" data-tool data-cat="ai" data-search="CogVideoX Text/image-to-video research models Apache-2.0 (code) Python Weights may carry their own license; check before commercial use AI video 13.1k AI generative">
   <h3><a href="tools/cogvideox.html">CogVideoX</a></h3>
   <p class="best">Text/image-to-video research models</p>
   <ul class="meta">
@@ -389,7 +394,7 @@
     <li>Push 2025-11-04</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="AnimateDiff Motion modules for Stable Diffusion image models Apache-2.0 Python Stalled since Jul 2024; superseded by native video models AI generative 12.3k">
+<article class="tool" data-tool data-cat="ai" data-search="AnimateDiff Motion modules for Stable Diffusion image models Apache-2.0 Python Stalled since Jul 2024; superseded by native video models AI video 12.3k AI generative">
   <h3><a href="tools/animatediff.html">AnimateDiff</a></h3>
   <p class="best">Motion modules for Stable Diffusion image models</p>
   <ul class="meta">
@@ -398,7 +403,7 @@
     <li>Push 2024-07-31</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="LTX-Video Earlier, permissively licensed LTX model Apache-2.0 Python Superseded by LTX-2 AI generative 11.2k">
+<article class="tool" data-tool data-cat="ai" data-search="LTX-Video Earlier, permissively licensed LTX model Apache-2.0 Python Superseded by LTX-2 AI video 11.2k AI generative">
   <h3><a href="tools/ltx-video.html">LTX-Video</a></h3>
   <p class="best">Earlier, permissively licensed LTX model</p>
   <ul class="meta">
@@ -407,7 +412,7 @@
     <li>Push 2026-01-05</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="WanGP Low-VRAM app for Wan, LTX, Hunyuan and more WanGP Community License 2.0 Python Free to use, but no reselling or paid hosting without a commercial license AI generative 11.1k">
+<article class="tool" data-tool data-cat="ai" data-search="WanGP Low-VRAM app for Wan, LTX, Hunyuan and more WanGP Community License 2.0 Python Free to use, but no reselling or paid hosting without a commercial license AI video 11.1k AI generative">
   <h3><a href="tools/wangp.html">WanGP</a></h3>
   <p class="best">Low-VRAM app for Wan, LTX, Hunyuan and more</p>
   <ul class="meta">
@@ -416,7 +421,7 @@
     <li>Push 2026-10-25</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="LTX-2 Video generation with synchronized audio (LTX-2.5 weights, v1.5.0) LTX-2.x Community License Python Entities with $10M+ annual revenue need a paid license AI generative 9.9k">
+<article class="tool" data-tool data-cat="ai" data-search="LTX-2 Video generation with synchronized audio (LTX-2.5 weights, v1.5.0) LTX-2.x Community License Python Entities with $10M+ annual revenue need a paid license AI video 9.9k AI generative">
   <h3><a href="tools/ltx-2.html">LTX-2</a></h3>
   <p class="best">Video generation with synchronized audio (LTX-2.5 weights, v1.5.0)</p>
   <ul class="meta">
@@ -425,7 +430,7 @@
     <li>Push 2026-10-18</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="ComfyUI-WanVideoWrapper Community Wan nodes for ComfyUI Apache-2.0 Python Last push May 2026 AI generative 6.7k">
+<article class="tool" data-tool data-cat="ai" data-search="ComfyUI-WanVideoWrapper Community Wan nodes for ComfyUI Apache-2.0 Python Last push May 2026 AI video 6.7k AI generative">
   <h3><a href="tools/wanvideo-wrapper.html">ComfyUI-WanVideoWrapper</a></h3>
   <p class="best">Community Wan nodes for ComfyUI</p>
   <ul class="meta">
@@ -434,7 +439,7 @@
     <li>Push 2026-05-24</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="ToonCrafter Generating in-between frames for cartoons Apache-2.0 Python Research code; no pushes since Mar 2025 AI generative 6.0k">
+<article class="tool" data-tool data-cat="ai" data-search="ToonCrafter Generating in-between frames for cartoons Apache-2.0 Python Research code; no pushes since Mar 2025 AI video 6.0k AI generative">
   <h3><a href="tools/tooncrafter.html">ToonCrafter</a></h3>
   <p class="best">Generating in-between frames for cartoons</p>
   <ul class="meta">
@@ -443,7 +448,7 @@
     <li>Push 2025-03-19</li>
   </ul>
 </article>
-<article class="tool" data-tool data-cat="ai" data-search="HunyuanVideo 1.5 8.3B text/image-to-video; 14 GB minimum with offloading Tencent Hunyuan Community License Python License does not apply in the EU, UK or South Korea AI generative 4.6k">
+<article class="tool" data-tool data-cat="ai" data-search="HunyuanVideo 1.5 8.3B text/image-to-video; 14 GB minimum with offloading Tencent Hunyuan Community License Python License does not apply in the EU, UK or South Korea AI video 4.6k AI generative">
   <h3><a href="tools/hunyuanvideo.html">HunyuanVideo 1.5</a></h3>
   <p class="best">8.3B text/image-to-video; 14 GB minimum with offloading</p>
   <ul class="meta">
@@ -470,7 +475,6 @@
 </article>
   </div>
 </section>
-  <p class="empty" id="none">No tools match that search.</p>
 </section>
     </div>
   </main>

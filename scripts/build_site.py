@@ -13,7 +13,7 @@ CATEGORIES = [
     ("pipeline", "Pipeline & CLI", "Pipeline/CLI", "Script encoding, math explainers, and batch edits."),
     ("apps", "2D/3D apps", "2D/3D", "Desktop programs for drawing, rigging, and 3D."),
     ("motion", "Motion graphics", "Motion graphics", "Editors and compositors with keyframes or nodes."),
-    ("ai", "AI generative", "AI video", "Local models and node UIs that generate or animate footage."),
+    ("ai", "AI video", "AI video", "Local models and node UIs that generate or animate footage."),
     ("lottie", "Lottie & vector", "Lottie", "Play vector animations exported from After Effects."),
 ]
 CAT_NAME = {cid: name for cid, name, _nav, _blurb in CATEGORIES}
@@ -986,7 +986,7 @@ PICKS = [
         "why": "Agent-written HTML to MP4; most-starred code-driven tool here",
         "license": "Apache-2.0",
         "cats": "code",
-        "hrefs": [("Open HyperFrames", "tools/hyperframes.html")],
+        "href": "tools/hyperframes.html",
     },
     {
         "rank": 2,
@@ -994,7 +994,7 @@ PICKS = [
         "why": "Mature React video pipeline for templated content at scale",
         "license": "Source-available",
         "cats": "code",
-        "hrefs": [("Open Remotion", "tools/remotion.html")],
+        "href": "tools/remotion.html",
     },
     {
         "rank": 3,
@@ -1002,15 +1002,15 @@ PICKS = [
         "why": "3D, 2D Grease Pencil, compositing and editing in one app",
         "license": "GPL-2.0+",
         "cats": "apps",
-        "hrefs": [("Open Blender", "tools/blender.html")],
+        "href": "tools/blender.html",
     },
     {
         "rank": 4,
-        "title": "ComfyUI + Wan 2.2",
-        "why": "Local AI video and character animation, permissive weights",
-        "license": "GPL-3.0 / Apache-2.0",
+        "title": "ComfyUI",
+        "why": "Local AI video and character animation, permissive weights. Wan 2.2 (Apache-2.0) is the model in this pick.",
+        "license": "GPL-3.0",
         "cats": "ai",
-        "hrefs": [("ComfyUI", "tools/comfyui.html"), ("Wan 2.2", "tools/wan22.html")],
+        "href": "tools/comfyui.html",
     },
     {
         "rank": 5,
@@ -1018,7 +1018,7 @@ PICKS = [
         "why": "Math and technical explainers in Python",
         "license": "MIT",
         "cats": "pipeline",
-        "hrefs": [("Open Manim", "tools/manim.html")],
+        "href": "tools/manim.html",
     },
     {
         "rank": 6,
@@ -1026,7 +1026,7 @@ PICKS = [
         "why": "AI video with synchronized audio",
         "license": "Community license",
         "cats": "ai",
-        "hrefs": [("Open LTX-2", "tools/ltx-2.html")],
+        "href": "tools/ltx-2.html",
     },
     {
         "rank": 7,
@@ -1034,31 +1034,41 @@ PICKS = [
         "why": "MIT-licensed code animation with a visual editor",
         "license": "MIT",
         "cats": "code",
-        "hrefs": [("Open Motion Canvas", "tools/motion-canvas.html")],
+        "href": "tools/motion-canvas.html",
     },
     {
         "rank": 8,
-        "title": "OpenToonz / Friction",
-        "why": "2D cel animation / After Effects-style motion graphics",
-        "license": "BSD-3 / GPL-3.0",
-        "cats": "apps motion",
-        "hrefs": [("OpenToonz", "tools/opentoonz.html"), ("Friction", "tools/friction.html")],
+        "title": "OpenToonz",
+        "why": "Production 2D cel and cut-out animation",
+        "license": "BSD-3-Clause",
+        "cats": "apps",
+        "href": "tools/opentoonz.html",
+    },
+    {
+        "rank": 9,
+        "title": "Friction",
+        "why": "After Effects-style vector motion graphics (enve fork)",
+        "license": "GPL-3.0",
+        "cats": "motion",
+        "href": "tools/friction.html",
     },
 ]
 
 
 def search_blob(tool):
-    return " ".join(
-        [
-            tool["name"],
-            tool["best"],
-            tool["license"],
-            tool["stack"],
-            tool["caveat"],
-            CAT_NAME[tool["cat"]],
-            tool["stars"],
-        ]
-    )
+    parts = [
+        tool["name"],
+        tool["best"],
+        tool["license"],
+        tool["stack"],
+        tool["caveat"],
+        CAT_NAME[tool["cat"]],
+        tool["stars"],
+    ]
+    # Keep the previous section name findable after the breadcrumb rename.
+    if tool["cat"] == "ai":
+        parts.append("AI generative")
+    return " ".join(parts)
 
 
 def nav(prefix, current):
@@ -1096,10 +1106,14 @@ def page(prefix, current, title, body, desc):
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         {nav(prefix, current)}
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -1134,17 +1148,13 @@ def tool_card(tool, prefix):
 def index_body():
     pick_cards = []
     for pick in PICKS:
-        links = " ".join(
-            f'<a href="{e(href)}">{e(label)}</a>' for label, href in pick["hrefs"]
-        )
         search = " ".join([pick["title"], pick["why"], pick["license"]])
         pick_cards.append(
             f"""<article class="card" data-tool data-cat="{e(pick["cats"])}" data-search="{e(search)}">
   <p class="rank">Top pick {pick["rank"]}</p>
-  <h3>{e(pick["title"])}</h3>
+  <h3><a href="{e(pick["href"])}">{e(pick["title"])}</a></h3>
   <p class="best">{e(pick["why"])}</p>
   <ul class="meta"><li>{e(pick["license"])}</li></ul>
-  <p>{links}</p>
 </article>"""
         )
     chips = ['<button type="button" data-filter="all" aria-pressed="true">All</button>']
@@ -1190,31 +1200,66 @@ def index_body():
       <input id="q" type="search" placeholder="Name, license, stack, or what it’s for" autocomplete="off">
     </div>
     <div>
-      <p id="filters-label" class="muted" style="margin:0 0 .3rem;font-size:.85rem;font-weight:650;color:var(--ink)">Category</p>
+      <p id="filters-label" class="control-label">Category</p>
       <div class="filters" role="group" aria-labelledby="filters-label">
         {"".join(chips)}
       </div>
     </div>
     <p id="count" aria-live="polite">35 tools</p>
+    <div class="empty" id="none" hidden>
+      <p>No tools match this search or category.</p>
+      <button type="button" class="clear-filters" data-clear-filters>Clear filters</button>
+    </div>
   </div>
   {"".join(sections)}
-  <p class="empty" id="none">No tools match that search.</p>
 </section>"""
+
+
+def sentence(text):
+    text = str(text).strip()
+    if text and text[-1] not in ".!?":
+        text += "."
+    return text
+
+
+def overview_html(tool):
+    """Purpose plus stack, then the recorded caveat. No claims beyond catalog fields."""
+    best = tool["best"].strip().rstrip(".")
+    stack = tool["stack"].strip().rstrip(".")
+    return f"<p>{e(sentence(best + ' — ' + stack))} {e(sentence(tool['caveat']))}</p>"
+
+
+def crumb_nav(parts):
+    lis = []
+    for i, (label, href) in enumerate(parts):
+        if i:
+            lis.append('    <li aria-hidden="true">/</li>')
+        if href:
+            lis.append(f'    <li><a href="{e(href)}">{e(label)}</a></li>')
+        else:
+            lis.append(f'    <li aria-current="page">{e(label)}</li>')
+    inner = "\n".join(lis)
+    return (
+        '<nav aria-label="Breadcrumb">\n'
+        '  <ol class="crumb">\n'
+        f"{inner}\n"
+        "  </ol>\n"
+        "</nav>"
+    )
 
 
 def tool_page(tool):
     cat_id = tool["cat"]
     docs = "".join(f'<li><a href="{e(href)}">{e(label)}</a></li>' for label, href in tool["docs"])
     docs = f'<li><a href="{e(tool["url"])}">GitHub</a></li>' + docs
-    body = f"""<nav aria-label="Breadcrumb">
-  <ol class="crumb">
-    <li><a href="../index.html">Home</a></li>
-    <li aria-hidden="true">/</li>
-    <li><a href="../index.html#{cat_id}">{e(CAT_NAME[cat_id])}</a></li>
-    <li aria-hidden="true">/</li>
-    <li>{e(tool["name"])}</li>
-  </ol>
-</nav>
+    crumbs = crumb_nav(
+        [
+            ("Home", "../index.html"),
+            (CAT_NAME[cat_id], f"../index.html#{cat_id}"),
+            (tool["name"], None),
+        ]
+    )
+    body = f"""{crumbs}
 <p class="kicker">{e(CAT_NAME[cat_id])}</p>
 <h1>{e(tool["name"])}</h1>
 <p class="lede">{e(tool["best"])}</p>
@@ -1226,7 +1271,7 @@ def tool_page(tool):
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>{e(tool["best"])}</p>
+  {overview_html(tool)}
   <h2>Install</h2>
   {blocks(tool["install"])}
   <h2>Quick start</h2>
@@ -1241,7 +1286,8 @@ def tool_page(tool):
 
 
 def licenses_body():
-    return """<p class="kicker">From the 26 Oct 2026 research notes</p>
+    return crumb_nav([("Home", "index.html"), ("License gotchas", None)]) + """
+<p class="kicker">From the 26 Oct 2026 research notes</p>
 <h1>License gotchas</h1>
 <p class="lede">Using these tools to make a video is often less restricted than shipping the tool or the model weights. The notes below are the ones that change a buying or shipping decision. They are not legal advice.</p>
 <article class="gotcha">
@@ -1280,8 +1326,55 @@ def licenses_body():
 
 
 def choose_body():
-    return """<p class="kicker">From the 26 Oct 2026 research notes</p>
+    return crumb_nav([("Home", "index.html"), ("How to choose", None)]) + """
+<p class="kicker">From the 26 Oct 2026 research notes</p>
 <h1>How to choose</h1>
+<p class="lede">Match the kind of picture to a path already in this catalog. The table is the short version. The list below is the same choice, by job.</p>
+<div class="table-wrap">
+<table class="decision">
+  <caption>Code-driven, desktop apps, motion graphics, or AI video</caption>
+  <thead>
+    <tr>
+      <th scope="col">You are making</th>
+      <th scope="col">Open</th>
+      <th scope="col">In this catalog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="You are making">A video described in code, HTML, or by an agent</td>
+      <td data-label="Open"><a href="index.html#code">Code-driven</a></td>
+      <td data-label="In this catalog"><a href="tools/hyperframes.html">HyperFrames</a> if you think in HTML/CSS. <a href="tools/remotion.html">Remotion</a> if you are a React team and fine with its license. <a href="tools/motion-canvas.html">Motion Canvas</a> or <a href="tools/revideo.html">Revideo</a> for MIT.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Explainers, diagrams, math, encoding, or batch edits</td>
+      <td data-label="Open"><a href="index.html#pipeline">Pipeline &amp; CLI</a></td>
+      <td data-label="In this catalog"><a href="tools/manim.html">Manim Community</a> for math. <a href="tools/ffmpeg.html">FFmpeg</a> for encoding and batch jobs. <a href="tools/moviepy.html">MoviePy</a> for scripted cutting, compositing, captions and titles. <a href="tools/editly.html">editly</a> for a declarative JSON5 spec or CLI to a finished slideshow-style video.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Drawing, rigging, cel work, or a 3D scene</td>
+      <td data-label="Open"><a href="index.html#apps">2D/3D apps</a></td>
+      <td data-label="In this catalog"><a href="tools/opentoonz.html">OpenToonz</a> or <a href="tools/tahoma2d.html">Tahoma2D</a> for production 2D. <a href="tools/synfig.html">Synfig</a> for rigged vector. <a href="tools/krita.html">Krita</a> or <a href="tools/pencil2d.html">Pencil2D</a> for hand-drawn. <a href="tools/blender.html">Blender</a> Grease Pencil for 2D in 3D.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Keyframed graphics, a node composite, or the final edit</td>
+      <td data-label="Open"><a href="index.html#motion">Motion graphics</a></td>
+      <td data-label="In this catalog"><a href="tools/friction.html">Friction</a> for After Effects-style vector work. <a href="tools/natron.html">Natron</a> for node compositing. Blender’s compositor for 3D-heavy shots. <a href="tools/kdenlive.html">Kdenlive</a> or <a href="tools/shotcut.html">Shotcut</a> for editing.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Generated shots or character animation</td>
+      <td data-label="Open"><a href="index.html#ai">AI video</a></td>
+      <td data-label="In this catalog"><a href="tools/comfyui.html">ComfyUI</a> as the workbench with <a href="tools/wan22.html">Wan 2.2</a> (Apache-2.0) first. <a href="tools/ltx-2.html">LTX-2</a> when you need audio. <a href="tools/wangp.html">WanGP</a> on low-VRAM GPUs.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Vector playback from an After Effects export</td>
+      <td data-label="Open"><a href="index.html#lottie">Lottie &amp; vector</a></td>
+      <td data-label="In this catalog"><a href="tools/lottie-web.html">lottie-web</a> plays the exported JSON. No video export; render frames through a code-driven pipeline.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2>By job</h2>
 <ol class="choose-list prose">
   <li><strong>Videos from data, templates, or AI agents.</strong> <a href="tools/hyperframes.html">HyperFrames</a> if you think in HTML/CSS. <a href="tools/remotion.html">Remotion</a> if you are a React team and fine with its license. <a href="tools/motion-canvas.html">Motion Canvas</a> or <a href="tools/revideo.html">Revideo</a> for MIT.</li>
   <li><strong>Explainers, diagrams, and math.</strong> <a href="tools/manim.html">Manim Community</a>. <a href="tools/motion-canvas.html">Motion Canvas</a> for a visual timeline.</li>
@@ -1294,7 +1387,8 @@ def choose_body():
 
 
 def notes_body():
-    return """<p class="kicker">Methodology</p>
+    return crumb_nav([("Home", "index.html"), ("Sources and notes", None)]) + """
+<p class="kicker">Methodology</p>
 <h1>Sources and notes</h1>
 <div class="prose">
   <p>This site lists 35 tools. Stars and last-push dates were taken from the GitHub API on 26 Oct 2026 and are stored as published in the research notes (for example “72.9k”, not a live recount). Licenses, “best for” lines, stacks, and caveats are from that same pass. This page does not add tools that were left out of it.</p>

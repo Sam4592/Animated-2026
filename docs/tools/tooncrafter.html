@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -37,12 +41,12 @@
   <ol class="crumb">
     <li><a href="../index.html">Home</a></li>
     <li aria-hidden="true">/</li>
-    <li><a href="../index.html#ai">AI generative</a></li>
+    <li><a href="../index.html#ai">AI video</a></li>
     <li aria-hidden="true">/</li>
-    <li>ToonCrafter</li>
+    <li aria-current="page">ToonCrafter</li>
   </ol>
 </nav>
-<p class="kicker">AI generative</p>
+<p class="kicker">AI video</p>
 <h1>ToonCrafter</h1>
 <p class="lede">Generating in-between frames for cartoons</p>
 <dl class="facts">
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Generating in-between frames for cartoons</p>
+  <p>Generating in-between frames for cartoons — Python. Research code; no pushes since Mar 2025.</p>
   <h2>Install</h2>
   <p>The README recommends Anaconda and pins Python 3.8.5. It does not print a <code>git clone</code> line; clone the repository, then:</p>
 <pre><code>git clone https://github.com/Doubiiu/ToonCrafter.git

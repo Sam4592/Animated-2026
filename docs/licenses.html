@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 <a href="index.html#top-picks">Top picks</a>
 <a href="index.html#code">Code-driven</a>
@@ -28,12 +32,19 @@
 <a href="licenses.html" aria-current="page">Licenses</a>
 <a href="choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
     <div class="wrap">
-      <p class="kicker">From the 26 Oct 2026 research notes</p>
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li aria-current="page">License gotchas</li>
+  </ol>
+</nav>
+<p class="kicker">From the 26 Oct 2026 research notes</p>
 <h1>License gotchas</h1>
 <p class="lede">Using these tools to make a video is often less restricted than shipping the tool or the model weights. The notes below are the ones that change a buying or shipping decision. They are not legal advice.</p>
 <article class="gotcha">

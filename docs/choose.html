@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 <a href="index.html#top-picks">Top picks</a>
 <a href="index.html#code">Code-driven</a>
@@ -28,13 +32,66 @@
 <a href="licenses.html">Licenses</a>
 <a href="choose.html" aria-current="page">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
     <div class="wrap">
-      <p class="kicker">From the 26 Oct 2026 research notes</p>
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li aria-current="page">How to choose</li>
+  </ol>
+</nav>
+<p class="kicker">From the 26 Oct 2026 research notes</p>
 <h1>How to choose</h1>
+<p class="lede">Match the kind of picture to a path already in this catalog. The table is the short version. The list below is the same choice, by job.</p>
+<div class="table-wrap">
+<table class="decision">
+  <caption>Code-driven, desktop apps, motion graphics, or AI video</caption>
+  <thead>
+    <tr>
+      <th scope="col">You are making</th>
+      <th scope="col">Open</th>
+      <th scope="col">In this catalog</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="You are making">A video described in code, HTML, or by an agent</td>
+      <td data-label="Open"><a href="index.html#code">Code-driven</a></td>
+      <td data-label="In this catalog"><a href="tools/hyperframes.html">HyperFrames</a> if you think in HTML/CSS. <a href="tools/remotion.html">Remotion</a> if you are a React team and fine with its license. <a href="tools/motion-canvas.html">Motion Canvas</a> or <a href="tools/revideo.html">Revideo</a> for MIT.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Explainers, diagrams, math, encoding, or batch edits</td>
+      <td data-label="Open"><a href="index.html#pipeline">Pipeline &amp; CLI</a></td>
+      <td data-label="In this catalog"><a href="tools/manim.html">Manim Community</a> for math. <a href="tools/ffmpeg.html">FFmpeg</a> for encoding and batch jobs. <a href="tools/moviepy.html">MoviePy</a> for scripted cutting, compositing, captions and titles. <a href="tools/editly.html">editly</a> for a declarative JSON5 spec or CLI to a finished slideshow-style video.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Drawing, rigging, cel work, or a 3D scene</td>
+      <td data-label="Open"><a href="index.html#apps">2D/3D apps</a></td>
+      <td data-label="In this catalog"><a href="tools/opentoonz.html">OpenToonz</a> or <a href="tools/tahoma2d.html">Tahoma2D</a> for production 2D. <a href="tools/synfig.html">Synfig</a> for rigged vector. <a href="tools/krita.html">Krita</a> or <a href="tools/pencil2d.html">Pencil2D</a> for hand-drawn. <a href="tools/blender.html">Blender</a> Grease Pencil for 2D in 3D.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Keyframed graphics, a node composite, or the final edit</td>
+      <td data-label="Open"><a href="index.html#motion">Motion graphics</a></td>
+      <td data-label="In this catalog"><a href="tools/friction.html">Friction</a> for After Effects-style vector work. <a href="tools/natron.html">Natron</a> for node compositing. Blender’s compositor for 3D-heavy shots. <a href="tools/kdenlive.html">Kdenlive</a> or <a href="tools/shotcut.html">Shotcut</a> for editing.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Generated shots or character animation</td>
+      <td data-label="Open"><a href="index.html#ai">AI video</a></td>
+      <td data-label="In this catalog"><a href="tools/comfyui.html">ComfyUI</a> as the workbench with <a href="tools/wan22.html">Wan 2.2</a> (Apache-2.0) first. <a href="tools/ltx-2.html">LTX-2</a> when you need audio. <a href="tools/wangp.html">WanGP</a> on low-VRAM GPUs.</td>
+    </tr>
+    <tr>
+      <td data-label="You are making">Vector playback from an After Effects export</td>
+      <td data-label="Open"><a href="index.html#lottie">Lottie &amp; vector</a></td>
+      <td data-label="In this catalog"><a href="tools/lottie-web.html">lottie-web</a> plays the exported JSON. No video export; render frames through a code-driven pipeline.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2>By job</h2>
 <ol class="choose-list prose">
   <li><strong>Videos from data, templates, or AI agents.</strong> <a href="tools/hyperframes.html">HyperFrames</a> if you think in HTML/CSS. <a href="tools/remotion.html">Remotion</a> if you are a React team and fine with its license. <a href="tools/motion-canvas.html">Motion Canvas</a> or <a href="tools/revideo.html">Revideo</a> for MIT.</li>
   <li><strong>Explainers, diagrams, and math.</strong> <a href="tools/manim.html">Manim Community</a>. <a href="tools/motion-canvas.html">Motion Canvas</a> for a visual timeline.</li>

@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#apps">2D/3D apps</a></li>
     <li aria-hidden="true">/</li>
-    <li>Pencil2D</li>
+    <li aria-current="page">Pencil2D</li>
   </ol>
 </nav>
 <p class="kicker">2D/3D apps</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Simple hand-drawn frame-by-frame</p>
+  <p>Simple hand-drawn frame-by-frame — C++, Qt. No rigging or tweening.</p>
   <h2>Install</h2>
   <p>The README says to download from the <a href="https://www.pencil2d.org/download/">official site</a> or GitHub releases. The download page, checked 26 Oct 2026, offers <strong>v0.7.2</strong> for Windows 7+, macOS 10.14+ (Intel and a separate mac build), and Linux AppImages. It also prints:</p>
 <pre><code>sudo pacman -S pencil2d
