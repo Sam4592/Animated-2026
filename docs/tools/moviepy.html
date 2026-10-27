@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#pipeline">Pipeline &amp; CLI</a></li>
     <li aria-hidden="true">/</li>
-    <li>MoviePy</li>
+    <li aria-current="page">MoviePy</li>
   </ol>
 </nav>
 <p class="kicker">Pipeline &amp; CLI</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Scripted cutting, compositing, captions and titles</p>
+  <p>Scripted cutting, compositing, captions and titles — Python. An editing library, not an animation engine.</p>
   <h2>Install</h2>
   <p>The README says MoviePy runs on Windows, Mac, and Linux with Python 3.9+, and that v2.0 has breaking changes from v1.</p>
 <pre><code>pip install moviepy</code></pre>

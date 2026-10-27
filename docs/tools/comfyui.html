@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -37,12 +41,12 @@
   <ol class="crumb">
     <li><a href="../index.html">Home</a></li>
     <li aria-hidden="true">/</li>
-    <li><a href="../index.html#ai">AI generative</a></li>
+    <li><a href="../index.html#ai">AI video</a></li>
     <li aria-hidden="true">/</li>
-    <li>ComfyUI</li>
+    <li aria-current="page">ComfyUI</li>
   </ol>
 </nav>
-<p class="kicker">AI generative</p>
+<p class="kicker">AI video</p>
 <h1>ComfyUI</h1>
 <p class="lede">Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026)</p>
 <dl class="facts">
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026)</p>
+  <p>Node UI that runs Wan, LTX, Hunyuan and other video models (v0.42.1, 19 Oct 2026) — Python. Each model keeps its own license; needs a capable GPU.</p>
   <h2>Install</h2>
   <p>The README recommends the <a href="https://www.comfy.org/download">desktop app</a> for Windows and Mac. Portable Windows archives are also linked (Nvidia, AMD, Intel, and an older Nvidia CUDA 12.6 build for 10-series GPUs). The Nvidia portable build it describes ships Python 3.13 and PyTorch CUDA 13.0 and supports 20-series and newer.</p>
 <h3>comfy-cli</h3>

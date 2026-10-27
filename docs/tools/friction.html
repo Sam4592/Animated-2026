@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#motion">Motion graphics</a></li>
     <li aria-hidden="true">/</li>
-    <li>Friction</li>
+    <li aria-current="page">Friction</li>
   </ol>
 </nav>
 <p class="kicker">Motion graphics</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>After Effects-style vector motion graphics (enve fork)</p>
+  <p>After Effects-style vector motion graphics (enve fork) — C++, Qt. Still a release candidate (v1.0.0-rc.3, 31 Dec 2025).</p>
   <h2>Install</h2>
   <p>The README links build instructions, not a binary install command. The project site’s download section, checked 26 Oct 2026, offers <strong>v1.0.0-rc.3</strong> for Windows (setup exe and a 7z), Linux (AppImage), and macOS (dmg), from the GitHub release assets. Example of the Windows setup linked there:</p>
 <pre><code>https://github.com/friction2d/friction/releases/download/v1.0.0-rc.3/friction-1.0.0-rc.3-setup-win64.exe</code></pre>

@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#pipeline">Pipeline &amp; CLI</a></li>
     <li aria-hidden="true">/</li>
-    <li>editly</li>
+    <li aria-current="page">editly</li>
   </ol>
 </nav>
 <p class="kicker">Pipeline &amp; CLI</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Declarative JSON5 spec or CLI to a finished slideshow-style video</p>
+  <p>Declarative JSON5 spec or CLI to a finished slideshow-style video — TypeScript, Node. No pushes since May 2025.</p>
   <h2>Install</h2>
   <p>README requirements: Windows, macOS, or Linux; Node.js (latest LTS recommended, and v12.16.2 or newer on macOS); <code>ffmpeg</code> and <code>ffprobe</code> on <code>PATH</code>. Linux may need the system packages listed by <a href="https://github.com/stackgl/headless-gl#system-dependencies">headless-gl</a>. The package is ESM only.</p>
 <pre><code>npm i -g editly</code></pre>

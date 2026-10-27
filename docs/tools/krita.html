@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#apps">2D/3D apps</a></li>
     <li aria-hidden="true">/</li>
-    <li>Krita</li>
+    <li aria-current="page">Krita</li>
   </ol>
 </nav>
 <p class="kicker">2D/3D apps</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Painted frame-by-frame animation</p>
+  <p>Painted frame-by-frame animation — C++, Qt. A painting app first; animation tools are basic.</p>
   <h2>Install</h2>
   <p>The GitHub README says this repository is a mirror of KDE Invent and points at <a href="https://www.krita.org">krita.org</a>. It does not include a user install command.</p>
 <p>The download page, checked 26 Oct 2026, offers <strong>Krita 5.3.4.1</strong> (released Wednesday, 7 October 2026): a Windows installer, a macOS installer, and a Linux 64-bit AppImage, plus Steam and the Mac App Store.</p>

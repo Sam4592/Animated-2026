@@ -16,7 +16,11 @@
         <strong>Animated 2026</strong>
         <span>Open tools for video</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span data-label-closed>Menu</span>
+        <span data-label-open>Close</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
         <a href="../index.html">Home</a>
 <a href="../index.html#top-picks">Top picks</a>
 <a href="../index.html#code">Code-driven</a>
@@ -28,7 +32,7 @@
 <a href="../licenses.html">Licenses</a>
 <a href="../choose.html">How to choose</a>
       </nav>
-      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Theme: system">System</button>
     </div>
   </header>
   <main id="main">
@@ -39,7 +43,7 @@
     <li aria-hidden="true">/</li>
     <li><a href="../index.html#motion">Motion graphics</a></li>
     <li aria-hidden="true">/</li>
-    <li>Kdenlive</li>
+    <li aria-current="page">Kdenlive</li>
   </ol>
 </nav>
 <p class="kicker">Motion graphics</p>
@@ -53,7 +57,7 @@
 </dl>
 <div class="prose">
   <h2>Overview</h2>
-  <p>Assembling, keyframed effects, titles and final edit</p>
+  <p>Assembling, keyframed effects, titles and final edit — C++, MLT. An editor, not an animation tool.</p>
   <h2>Install</h2>
   <p>The README does not include an install command. It says downloads for stable releases and daily builds are on <a href="https://kdenlive.org">kdenlive.org</a>.</p>
 <p>The download page, checked 26 Oct 2026, lists <strong>26.08.2</strong>. The Windows standalone build says it requires Windows 10 or newer. Linux options on that page include an AppImage. macOS is a separate column on the same page. Daily builds are marked for testing.</p>

@@ -8,10 +8,10 @@ Once GitHub Pages is enabled, the site is at [https://sam4592.github.io/Animated
 
 ## What’s in the site
 
-- `docs/index.html` — short intro, top picks, and a searchable list by category
+- `docs/index.html` — short intro, top picks, and a searchable list by category. A search is shared as `?q=`, and a category as `#ai` or `?cat=ai`.
 - `docs/tools/` — one page per tool (overview, install, quick start, caveats, links)
 - `docs/licenses.html` — Remotion, LTX-2, HunyuanVideo, WanGP, GPL, and code-versus-weights
-- `docs/choose.html` — how to pick a tool for the job
+- `docs/choose.html` — a decision table plus the job-by-job list
 - `docs/notes.html` — data date, what was left out, and sources
 
 Stars and last-push dates come from the GitHub API on 26 Oct 2026. They are not a live count.
