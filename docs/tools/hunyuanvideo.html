@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HunyuanVideo 1.5 · Animated 2026</title>
+  <meta name="description" content="HunyuanVideo 1.5: 8.3B text/image-to-video; 14 GB minimum with offloading. License Tencent Hunyuan Community License. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>HunyuanVideo 1.5</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>HunyuanVideo 1.5</h1>
+<p class="lede">8.3B text/image-to-video; 14 GB minimum with offloading</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>Tencent Hunyuan Community License</dd></div>
+  <div><dt>Stars</dt><dd>4.6k</dd></div>
+  <div><dt>Last push</dt><dd>2026-04-10</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>8.3B text/image-to-video; 14 GB minimum with offloading</p>
+  <h2>Install</h2>
+  <p>README hardware: NVIDIA GPU with CUDA. Minimum GPU memory is <strong>14 GB with model offloading</strong>. More memory can turn offloading off. Software: <strong>Linux</strong>, Python 3.10 or higher, and a CUDA build that matches PyTorch. The README does not document Windows or macOS installs.</p>
+<pre><code>git clone https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5.git
+cd HunyuanVideo-1.5
+pip install -r requirements.txt
+pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python</code></pre>
+<p>Flash Attention, Flex-Block-Attention, SageAttention, and <code>sgl-kernel==0.3.18</code> are optional speedups with their own commands in the README. Download weights using <code>checkpoints-download.md</code> before generating.</p>
+<p class="callout"><strong>Check this.</strong> Requirements and commands from the HunyuanVideo-1.5 README, checked 26 Oct 2026.</p>
+  <h2>Quick start</h2>
+  <p>Inference commands are in the README’s “Inference with Source Code” section and depend on which checkpoint you downloaded (480p text-to-video and image-to-video are linked from the model cards). This page does not copy a command that only works after a specific checkpoint layout.</p>
+<p class="callout"><strong>Check this.</strong> The Tencent Hunyuan Community License does not apply in the EU, the UK, or South Korea. See <a href="../licenses.html">Licenses</a>.</p>
+  <h2>Caveats</h2>
+  <p class="callout">License does not apply in the EU, UK or South Korea</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5">GitHub</a></li><li><a href="https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5#dependencies-and-installation">README</a></li><li><a href="https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5/blob/main/LICENSE">License</a></li><li><a href="https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5/blob/main/checkpoints-download.md">Checkpoints</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>

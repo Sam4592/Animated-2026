@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FramePack · Animated 2026</title>
+  <meta name="description" content="FramePack: Practical image-to-video diffusion on consumer GPUs. License Apache-2.0. Install notes as of 26 Oct 2026.">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23145c40' width='32' height='32' rx='6'/%3E%3Crect fill='%23f4f1ea' x='7' y='8' width='18' height='16' rx='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <strong>Animated 2026</strong>
+        <span>Open tools for video</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+<a href="../index.html#top-picks">Top picks</a>
+<a href="../index.html#code">Code-driven</a>
+<a href="../index.html#pipeline">Pipeline/CLI</a>
+<a href="../index.html#apps">2D/3D</a>
+<a href="../index.html#motion">Motion graphics</a>
+<a href="../index.html#ai">AI video</a>
+<a href="../index.html#lottie">Lottie</a>
+<a href="../licenses.html">Licenses</a>
+<a href="../choose.html">How to choose</a>
+      </nav>
+      <button class="theme-btn" type="button" data-theme-toggle>Theme: system</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb">
+  <ol class="crumb">
+    <li><a href="../index.html">Home</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="../index.html#ai">AI generative</a></li>
+    <li aria-hidden="true">/</li>
+    <li>FramePack</li>
+  </ol>
+</nav>
+<p class="kicker">AI generative</p>
+<h1>FramePack</h1>
+<p class="lede">Practical image-to-video diffusion on consumer GPUs</p>
+<dl class="facts">
+  <div><dt>License</dt><dd>Apache-2.0</dd></div>
+  <div><dt>Stars</dt><dd>17.3k</dd></div>
+  <div><dt>Last push</dt><dd>2025-10-16</dd></div>
+  <div><dt>Stack</dt><dd>Python</dd></div>
+</dl>
+<div class="prose">
+  <h2>Overview</h2>
+  <p>Practical image-to-video diffusion on consumer GPUs</p>
+  <h2>Install</h2>
+  <p>README requirements: Nvidia GPU in the RTX 30, 40, or 50 series with fp16 and bf16. GTX 10 and RTX 20 series are not tested. Linux or Windows. At least 6 GB of GPU memory. The README says a 60-second 30 fps clip with the 13B model can run in 6 GB.</p>
+<h3>Windows</h3>
+<p>One-click package (CUDA 12.6 + PyTorch 2.6) linked from the README:</p>
+<pre><code>https://github.com/lllyasviel/FramePack/releases/download/windows/framepack_cu126_torch26.7z</code></pre>
+<p>Uncompress, run <code>update.bat</code>, then <code>run.bat</code>. The README says the first run downloads more than 30 GB of models.</p>
+<h3>Linux</h3>
+<pre><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+pip install -r requirements.txt
+python demo_gradio.py</code></pre>
+<p>The README recommends a separate Python 3.10. It says to try the default PyTorch attention before optional kernels such as <code>pip install sageattention==1.0.6</code>.</p>
+<p class="callout"><strong>Check this.</strong> Requirements and commands from the FramePack README, checked 26 Oct 2026.</p>
+  <h2>Quick start</h2>
+  <p>The Gradio GUI is the quick start. The README documents <code>--share</code>, <code>--port</code>, and <code>--server</code> on <code>demo_gradio.py</code>.</p>
+  <h2>Caveats</h2>
+  <p class="callout">No pushes since Oct 2025</p>
+  <h2>Links</h2>
+  <ul class="links"><li><a href="https://github.com/lllyasviel/FramePack">GitHub</a></li><li><a href="https://github.com/lllyasviel/FramePack#installation">README</a></li></ul>
+</div>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Data as of 26 Oct 2026. Stars and last push from the GitHub API. Not a live count.</p>
+      <p><a href="../notes.html">Sources and notes</a></p>
+    </div>
+  </footer>
+  <script src="../js/site.js"></script>
+</body>
+</html>
