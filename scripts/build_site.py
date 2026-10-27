@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Generate the static GitHub Pages catalog in docs/."""
+"""Generate the catalog as Markdown for browsing on GitHub, plus an HTML copy in docs/."""
 
 from html import escape
+from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1391,7 +1392,7 @@ def notes_body():
 <p class="kicker">Methodology</p>
 <h1>Sources and notes</h1>
 <div class="prose">
-  <p>This site lists 35 tools. Stars and last-push dates were taken from the GitHub API on 26 Oct 2026 and are stored as published in the research notes (for example “72.9k”, not a live recount). Licenses, “best for” lines, stacks, and caveats are from that same pass. This page does not add tools that were left out of it.</p>
+  <p>This catalog lists 35 tools. Stars and last-push dates were taken from the GitHub API on 26 Oct 2026 and are stored as published in the research notes (for example “72.9k”, not a live recount). Licenses, “best for” lines, stacks, and caveats are from that same pass. This page does not add tools that were left out of it.</p>
   <h2>Install steps</h2>
   <p>Install and quick-start commands were copied from each project’s GitHub README, or from the official install page that README links, on 26 Oct 2026. Where a README has no end-user command, the tool page says so and links the download page that was actually fetched. Commands that could not be read from those pages are not filled in from memory.</p>
   <h2>Stalled or left out</h2>
@@ -1414,7 +1415,373 @@ def notes_body():
 </div>"""
 
 
+def squash(text):
+    return " ".join(text.split())
+
+
+def catalog_href(href, up):
+    """Rewrite catalog HTML links to relative Markdown paths. External URLs stay put."""
+    href = (href or "").strip()
+    if not href or href.startswith(("http://", "https://", "mailto:", "#")):
+        return href
+    climbed = False
+    while href.startswith("../"):
+        href = href[3:]
+        climbed = True
+    path, _, anchor = href.partition("#")
+    anchor = f"#{anchor}" if anchor else ""
+    renamed = {
+        "index.html": "README.md",
+        "licenses.html": "licenses.md",
+        "choose.html": "choose.md",
+        "notes.html": "notes.md",
+    }
+    if path in renamed:
+        path = renamed[path]
+    elif path.endswith(".html"):
+        path = path[:-5] + ".md"
+    prefix = up if climbed else ""
+    return f"{prefix}{path}{anchor}"
+
+
+class MDBuilder(HTMLParser):
+    """Turn the catalog's small HTML subset into GitHub-flavored Markdown."""
+
+    INLINE = {"a", "strong", "b", "em", "code"}
+
+    def __init__(self, up):
+        super().__init__(convert_charrefs=True)
+        self.up = up
+        self.parts = []
+        self.stack = [["root"]]
+        self.list_stack = []
+        self.table = None
+        self.skip = 0
+
+    def handle_starttag(self, tag, attrs):
+        if self.skip:
+            self.skip += 1
+            return
+        ad = dict(attrs)
+        if ad.get("aria-hidden") == "true":
+            self.skip = 1
+            return
+        if tag == "a":
+            self.stack.append(["a", ad.get("href", "")])
+            return
+        if tag in self.INLINE:
+            self.stack.append([tag])
+            return
+        if tag in ("ul", "ol"):
+            self.list_stack.append({"tag": tag, "crumb": "crumb" in ad.get("class", ""), "items": []})
+            return
+        if tag in ("li", "p", "h1", "h2", "h3", "caption", "td", "th"):
+            self.stack.append([tag, ad.get("class", "")])
+            return
+        if tag == "table":
+            self.table = {"head": [], "rows": [], "in_head": False, "row": None, "caption": ""}
+            return
+        if tag == "thead" and self.table:
+            self.table["in_head"] = True
+            return
+        if tag == "tbody" and self.table:
+            self.table["in_head"] = False
+            return
+        if tag == "tr" and self.table:
+            self.table["row"] = []
+            return
+
+    def handle_endtag(self, tag):
+        if self.skip:
+            self.skip -= 1
+            return
+        if tag in self.INLINE or tag in ("li", "p", "h1", "h2", "h3", "caption", "td", "th"):
+            if len(self.stack) < 2 or self.stack[-1][0] != tag:
+                return
+            if tag in ("p", "h1", "h2", "h3", "caption", "li", "td", "th"):
+                frame = self.stack.pop()
+                self._emit_block(tag, squash("".join(frame[2:])), frame[1])
+                return
+            self._pop_inline()
+            return
+        if tag in ("ul", "ol") and self.list_stack:
+            lst = self.list_stack.pop()
+            items = [item for item in lst["items"] if item]
+            if not items:
+                return
+            if lst["crumb"]:
+                self.parts.append(" / ".join(items))
+                return
+            lines = []
+            for i, item in enumerate(items, 1):
+                prefix = f"{i}. " if tag == "ol" else "- "
+                lines.append(prefix + item)
+            self.parts.append("\n".join(lines))
+            return
+        if tag == "tr" and self.table and self.table["row"] is not None:
+            row = self.table["row"]
+            if self.table["in_head"]:
+                self.table["head"] = row
+            else:
+                self.table["rows"].append(row)
+            self.table["row"] = None
+            return
+        if tag == "table" and self.table:
+            caption = self.table["caption"]
+            headers = self.table["head"]
+            rows = self.table["rows"]
+            if not headers and rows:
+                headers = rows.pop(0)
+            if caption:
+                self.parts.append(f"**{caption}**")
+            if headers:
+                self.parts.append(render_table(headers, rows))
+            self.table = None
+
+    def handle_data(self, data):
+        if self.skip or not data:
+            return
+        self.stack[-1].append(data)
+
+    def _pop_inline(self):
+        frame = self.stack.pop()
+        kind = frame[0]
+        if kind == "a":
+            text = squash("".join(frame[2:]))
+            rendered = f"[{text}]({catalog_href(frame[1], self.up)})"
+        elif kind == "code":
+            text = "".join(frame[1:])
+            rendered = f"`` {text} ``" if "`" in text else f"`{text}`"
+        elif kind in ("strong", "b"):
+            rendered = f"**{squash(''.join(frame[1:]))}**"
+        elif kind == "em":
+            rendered = f"*{squash(''.join(frame[1:]))}*"
+        else:
+            rendered = squash("".join(frame[1:]))
+        self.stack[-1].append(rendered)
+
+    def _emit_block(self, tag, text, cls=""):
+        if tag == "li":
+            if self.list_stack:
+                self.list_stack[-1]["items"].append(text)
+            elif text:
+                self.parts.append(f"- {text}")
+            return
+        if tag in ("td", "th") and self.table and self.table["row"] is not None:
+            self.table["row"].append(text)
+            return
+        if tag == "caption" and self.table is not None:
+            self.table["caption"] = text
+            return
+        if not text:
+            return
+        if tag == "h1":
+            self.parts.append(f"# {text}")
+        elif tag == "h2":
+            self.parts.append(f"## {text}")
+        elif tag == "h3":
+            self.parts.append(f"### {text}")
+        elif tag == "p" and "kicker" in cls:
+            self.parts.append(f"*{text}*")
+        else:
+            self.parts.append(text)
+
+    def markdown(self):
+        return "\n\n".join(self.parts).strip() + "\n"
+
+
+def fragment_to_md(html, up):
+    parser = MDBuilder(up)
+    parser.feed(html)
+    parser.close()
+    return parser.markdown()
+
+
+def inline_to_md(fragment, up):
+    return fragment_to_md(f"<p>{fragment}</p>", up).strip()
+
+
+def render_table(headers, rows):
+    def cell(value):
+        return value.replace("|", "\\|")
+
+    lines = [
+        "| " + " | ".join(cell(col) for col in headers) + " |",
+        "| " + " | ".join("---" for _ in headers) + " |",
+    ]
+    for row in rows:
+        padded = row + [""] * (len(headers) - len(row))
+        lines.append("| " + " | ".join(cell(col) for col in padded[: len(headers)]) + " |")
+    return "\n".join(lines)
+
+
+def md_blocks(items, up):
+    parts = []
+    for kind, payload in items:
+        if kind == "p":
+            parts.append(inline_to_md(payload, up))
+        elif kind == "h3":
+            parts.append(f"### {payload}")
+        elif kind == "note":
+            text = inline_to_md(payload, up)
+            parts.append("> **Check this.** " + text)
+        elif kind == "ul":
+            parts.append("\n".join(f"- {inline_to_md(item, up)}" for item in payload))
+        elif kind == "ol":
+            parts.append("\n".join(f"{i}. {inline_to_md(item, up)}" for i, item in enumerate(payload, 1)))
+        elif kind == "code":
+            body = payload.rstrip("\n")
+            fence = "````" if "```" in body else "```"
+            parts.append(f"{fence}\n{body}\n{fence}")
+        else:
+            raise ValueError(kind)
+    return "\n\n".join(parts)
+
+
+def root_nav():
+    return "[Catalog](README.md) · [How to choose](choose.md) · [Licenses](licenses.md) · [Notes](notes.md)"
+
+
+def tool_nav():
+    return "[Catalog](../README.md) · [How to choose](../choose.md) · [Licenses](../licenses.md) · [Notes](../notes.md)"
+
+
+def md_overview(tool):
+    best = tool["best"].strip().rstrip(".")
+    stack = tool["stack"].strip().rstrip(".")
+    return f"{sentence(best + ' — ' + stack)} {sentence(tool['caveat'])}"
+
+
+def readme_md():
+    lines = [
+        "# Animated 2026",
+        "",
+        "A catalog of open-source and source-available tools for creating animated videos, as of 26 October 2026. Browse it here, in this repository.",
+        "",
+        f"{len(TOOLS)} tools, with license, GitHub stars, last push, what each one is for, and install or quick-start steps taken from that project’s official README or the docs the README points to.",
+        "",
+        "The biggest shift in 2026 is agent-driven video: HyperFrames, HeyGen’s Apache-2.0 HTML-to-video framework, already has 72.9k stars and shipped v0.8.206 on 26 Oct 2026. For generated footage, Wan 2.2 inside ComfyUI is the most permissive strong option in this set.",
+        "",
+        "Stars and last-push dates come from the GitHub API on 26 Oct 2026. They are not a live count. Nothing here is a company product, and there are no testimonials.",
+        "",
+        "**Browse:** [How to choose](choose.md) · [License gotchas](licenses.md) · [Sources and notes](notes.md)",
+        "",
+        '<a id="top-picks"></a>',
+        "",
+        "## Top picks",
+        "",
+    ]
+    for pick in PICKS:
+        href = pick["href"].replace(".html", ".md")
+        lines.append(f"{pick['rank']}. **[{pick['title']}]({href})** — {pick['why']} · {pick['license']}")
+    lines.extend(["", '<a id="catalog"></a>', "", "## All tools", ""])
+    for cid, name, _label, blurb in CATEGORIES:
+        lines.extend([f'<a id="{cid}"></a>', "", f"### {name}", "", blurb, ""])
+        for tool in TOOLS:
+            if tool["cat"] != cid:
+                continue
+            lines.append(
+                f"- [{tool['name']}](tools/{tool['slug']}.md) — {tool['best']} · {tool['license']} · {tool['stars']} stars · push {tool['pushed']}"
+            )
+        lines.append("")
+    lines.extend(
+        [
+            "---",
+            "",
+            f"Data as of {AS_OF}. [How to choose](choose.md) · [License gotchas](licenses.md) · [Sources and notes](notes.md)",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def tools_index_md():
+    lines = [
+        tool_nav(),
+        "",
+        "# Tools",
+        "",
+        "One page per tool. The grouped list on the [catalog home](../README.md#catalog) is the same set.",
+        "",
+    ]
+    for cid, name, _label, blurb in CATEGORIES:
+        lines.extend([f"## {name}", "", blurb, ""])
+        for tool in TOOLS:
+            if tool["cat"] != cid:
+                continue
+            lines.append(f"- [{tool['name']}]({tool['slug']}.md) — {tool['best']}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def tool_md(tool):
+    cat = tool["cat"]
+    links = [f"- [GitHub]({tool['url']})"]
+    for label, href in tool["docs"]:
+        links.append(f"- [{label}]({href})")
+    facts = render_table(
+        ["Fact", "Recorded value"],
+        [
+            ["License", tool["license"]],
+            ["Stars", tool["stars"]],
+            ["Last push", tool["pushed"]],
+            ["Stack", tool["stack"]],
+        ],
+    )
+    return "\n".join(
+        [
+            tool_nav(),
+            "",
+            f"[Catalog](../README.md) / [{CAT_NAME[cat]}](../README.md#{cat}) / {tool['name']}",
+            "",
+            f"# {tool['name']}",
+            "",
+            tool["best"],
+            "",
+            facts,
+            "",
+            "## Overview",
+            "",
+            md_overview(tool),
+            "",
+            "## Install",
+            "",
+            md_blocks(tool["install"], "../"),
+            "",
+            "## Quick start",
+            "",
+            md_blocks(tool["quick"], "../"),
+            "",
+            "## Caveats",
+            "",
+            f"> {tool['caveat']}",
+            "",
+            "## Links",
+            "",
+            "\n".join(links),
+            "",
+        ]
+    )
+
+
+def support_md(body_html):
+    return root_nav() + "\n\n" + fragment_to_md(body_html, "")
+
+
+def write_markdown():
+    tools_dir = ROOT / "tools"
+    tools_dir.mkdir(parents=True, exist_ok=True)
+    (ROOT / "README.md").write_text(readme_md(), encoding="utf-8")
+    (ROOT / "choose.md").write_text(support_md(choose_body()), encoding="utf-8")
+    (ROOT / "licenses.md").write_text(support_md(licenses_body()), encoding="utf-8")
+    (ROOT / "notes.md").write_text(support_md(notes_body()), encoding="utf-8")
+    (tools_dir / "README.md").write_text(tools_index_md(), encoding="utf-8")
+    for tool in TOOLS:
+        (tools_dir / f"{tool['slug']}.md").write_text(tool_md(tool), encoding="utf-8")
+
+
 def main():
+    write_markdown()
     (DOCS / "tools").mkdir(parents=True, exist_ok=True)
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
     desc = "Catalog of open-source and source-available tools for animated video, as of 26 Oct 2026."
@@ -1437,7 +1804,7 @@ def main():
     for tool in TOOLS:
         path = DOCS / "tools" / f"{tool['slug']}.html"
         path.write_text(tool_page(tool), encoding="utf-8")
-    print(f"wrote {len(TOOLS)} tool pages")
+    print(f"wrote README, support pages, and {len(TOOLS)} markdown tool pages; refreshed HTML in docs/")
 
 
 if __name__ == "__main__":
